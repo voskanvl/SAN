@@ -10,13 +10,16 @@ const locals = {
     name: "ШВСМ",
 };
 
-const mergeJSON = () => {
+const STANDART = "yaml";
+
+const merge = standart => {
+    const fn = { json: JSON.stringify, yaml: yaml.load }[standart];
     const files = readdirSync(resolve(__dirname, "src/data"));
     const jsons = files.filter(file => extname(file) === ".yaml");
     return jsons.reduce(
         (acc, file) => ({
             ...acc,
-            ...yaml.load(readFileSync(resolve(__dirname, "src/data", file))),
+            ...fn(readFileSync(resolve(__dirname, "src/data", file))),
         }),
         {},
     );
@@ -24,7 +27,7 @@ const mergeJSON = () => {
 
 export default defineConfig({
     // plugins: [pugPlugin.default(options, locals)],
-    plugins: [vitePugPlugin({ pugLocals: mergeJSON() })],
+    plugins: [vitePugPlugin({ pugLocals: merge(STANDART) })],
     build: {
         rollupOptions: {
             input: {

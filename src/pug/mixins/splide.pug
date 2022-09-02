@@ -1,8 +1,8 @@
-mixin splide(idname, arrObject)
+mixin splide(idname, arr)
     section.splide(id= idname)
         .splide__track
                 ul.splide__list
-                    each i in arrObject
+                    each i in arr
                         li.splide__slide
+                            - val = i
                             block
-                                

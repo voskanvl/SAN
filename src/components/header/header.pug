@@ -1,7 +1,14 @@
 include ../../pug/mixins/test.pug
+include ../../pug/mixins/splide.pug
 each i in menu 
     a(href= i.href)= i.name
 
+each i in Object.keys(common)
+    div #{i} - #{common[i]}
 
+
++splide('test',[1,2,3])
+        p hjlkjhlkjlkj
+        h1= val
             
 
