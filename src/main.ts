@@ -1,9 +1,7 @@
 import './sass/style.sass'
-import Splide from "@splidejs/splide"
+import { MSplides } from "./initSlides"
 import '@splidejs/splide/css'
 
-const splides = new Map()
-splides.set('#test', { type: 'loop', autoplay: 1000 })
-
-const AllSplides = (splides: Map<string, object>) => (fn: 'mount' | 'refresh') => splides.forEach((value, key) => new Splide(key, value)[fn]())
-AllSplides(splides)("mount")
+const splidesInstance = new MSplides()
+splidesInstance.add('#test', { type: 'loop', autoplay: 1000 })
+console.log(splidesInstance.instances['#test'])
