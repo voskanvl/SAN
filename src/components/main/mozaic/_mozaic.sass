@@ -11,10 +11,27 @@
         grid-area: 1 / 1 / 2 / 3
         & .panel__img
             transform: rotate(24deg)
+            left: -6%
+            top: 33%
+
     & > .panel:nth-child(2)
         overflow: visible
         clip-path: polygon(-10% 0%, 110% 0%, 110% 99%, -10% 99%)
+
     & > .panel:nth-child(3)
         grid-area: 1 / 4 / 3 / 5
+        & .panel__img
+            top: 10%
+            left: 65%
+
+    & > .panel:nth-child(4)
+        & .panel__img
+            transform: rotateY(180deg)
+            top: 50%
+
     & > .panel:nth-child(5)
         grid-area: 2 / 2 / 2 / 4
+        & .panel__img
+            width: 80%
+            left: 40%
+            top: 30%
