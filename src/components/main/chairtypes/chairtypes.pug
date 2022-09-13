@@ -1,6 +1,10 @@
 include ../../../pug/mixins/splide.pug
 .chairtypes
-    .chairtypes__button влево
+    .chairtypes__button.next.next_left
+        span.title влево
+        img.arrow(src="../../../../assets/icons/Arrow 1.png")
     +splide('chairtypes',[0,1,2,3], 1700)
         include ../../common/catalogItem/catalogItem.pug
-    .chairtypes__button вправо
+    .chairtypes__button.next.next_right 
+        span.title вправо
+        img.arrow_180(src="../../../../assets/icons/Arrow 1.png")

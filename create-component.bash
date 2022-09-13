@@ -1,6 +1,6 @@
 echo Наименование компонента: 
 read a
-a = echo $a | sed 's/[^0-9a-zA-Z]//g'
+a =  $(echo $a | sed 's/[^0-9a-zA-Z]//g')
 /c/Program\ Files\ \(x86\)/GnuWin32/bin/tree.exe -d ./src/components
 echo В какую папку положить компонент: 
 read b

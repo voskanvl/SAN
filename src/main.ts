@@ -4,7 +4,16 @@ import '@splidejs/splide/css'
 
 const splidesInstance = new MSplides()
 splidesInstance.add('#test', { type: 'loop', autoplay: true })
-splidesInstance.add('#chairtypes', { type: 'loop', autoplay: false, perPage: 4, perMove: 1, direction: 'rtl', arrows: false, focus: 'center', pagination: false })
+splidesInstance.add('#chairtypes', { 
+    type: 'loop',
+    autoplay: false,
+    perMove: 1,
+    direction: 'rtl',
+    arrows: false,
+    focus: 'center',
+    pagination: false,
+    autoWidth: true 
+})
 
 const chairtypesButtons = document.querySelectorAll(".chairtypes__button")
 chairtypesButtons[0].addEventListener("click", () => {
