@@ -1,4 +1,4 @@
-mixin panel(type,title,img,offset)
+mixin panel(type,title,img)
     .panel&attributes(attributes)
         .panel__content
             .panel__title
@@ -7,6 +7,4 @@ mixin panel(type,title,img,offset)
             a.panel__next.next(href="#") 
                 div Далее
                 img.arrow_180(src="../../../../assets/icons/Arrow 1.png")
-        - const left = offset && offset.left || ""
-        - const top = offset &&  offset.top || ""
-        img.panel__img(src=img, style=`left:${left}; top:${top};`)
+        img.panel__img(src=img)
