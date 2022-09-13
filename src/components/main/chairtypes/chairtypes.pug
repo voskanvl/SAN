@@ -1,0 +1,6 @@
+include ../../../pug/mixins/splide.pug
+.chairtypes
+    .chairtypes__button влево
+    +splide('chairtypes',[0,1,2,3], 1700)
+        include ../../common/catalogItem/catalogItem.pug
+    .chairtypes__button вправо
