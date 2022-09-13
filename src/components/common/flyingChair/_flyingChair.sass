@@ -1,0 +1,22 @@
+.flyingChair
+    &__chair
+        background: url("../../../../assets/images/873 1.png") no-repeat
+        height: 800px
+        width: 538px
+        transform: rotate(24deg)
+        animation: flying 8s linear infinite
+
+    &__shadow
+        width: 512px
+        height: 140px
+        background: #0006
+        filter: blur(20px)
+        border-radius: 50%
+        animation: retreating 8s linear infinite
+@keyframes flying
+    50%
+        transform: rotate(20deg) translateY(-50px)
+@keyframes retreating
+    50%
+        transform: scale(0.8)
+        filter: blur(40px)
