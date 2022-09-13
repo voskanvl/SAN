@@ -1,0 +1,20 @@
+.mozaic
+    display: grid
+    width: min(1200px,95vw)
+    margin-inline: auto
+    grid-template-columns: 1fr 0.5fr 1fr 1fr
+    grid-gap: 20px 18px
+    grid-template-rows: repeat(2,263px)
+    margin-bottom: 100px
+
+    & > .panel:nth-child(1)
+        grid-area: 1 / 1 / 2 / 3
+        & .panel__img
+            transform: rotate(24deg)
+    & > .panel:nth-child(2)
+        overflow: visible
+        clip-path: polygon(-10% 0%, 110% 0%, 110% 99%, -10% 99%)
+    & > .panel:nth-child(3)
+        grid-area: 1 / 4 / 3 / 5
+    & > .panel:nth-child(5)
+        grid-area: 2 / 2 / 2 / 4
