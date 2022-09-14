@@ -4,6 +4,10 @@
     width: min(1200px, 95vw)
     margin-inline: auto
     height: 478px
+    @media screen and ( max-width: 1024px )
+        grid-template-columns: 1fr
+        grid-template-rows: 7fr 5fr
+        height: auto
 
     &__container
         margin-bottom: 110px
@@ -15,17 +19,52 @@
         place-items: center
         img
             width: 110%
+        @media screen and ( max-width: 1024px )
+            border-radius: 10px 10px 0 0px
 
     &__right
         padding: 39px 54px
         position: relative
+        background: #F4F5F7
+        border-radius: 0 10px 10px 0
+        display: flex
+        flex-direction: column
+        overflow: hidden
+        // justify-content: space-between
+
         .panel__title
             color: #0A2C50
             margin-bottom: 1em
+            display: flex
+            flex-wrap: wrap
+            & > span
+                &:not(:last-child)
+                    margin-right: 0.3em
+                &:nth-child(2)
+                    font-weight: bold
+
+        @media screen and ( max-width: 1024px )
+            border-radius: 0 0px 10px 10px
+            height: fit-content
+
+        .button
+            width: fit-content
 
     &__controls
         display: flex
         justify-content: space-between
+
+    &__list
+        position: relative
+        justify-self: start
+        height: 400px
+
+    &__content
         position: absolute
-        bottom: 1em
+        top: 0
+        left: -150%
         width: 100%
+        transition: left .5s .5s
+        &[active]
+            left: 0
+            transition: left .5s .5s

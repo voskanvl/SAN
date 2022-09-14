@@ -4,7 +4,7 @@ import '@splidejs/splide/css'
 
 const splidesInstance = new MSplides()
 splidesInstance.add('#test', { type: 'loop', autoplay: true })
-splidesInstance.add('#chairtypes', { 
+splidesInstance.add('#chairtypes', {
     type: 'loop',
     autoplay: false,
     perMove: 1,
@@ -12,9 +12,9 @@ splidesInstance.add('#chairtypes', {
     arrows: false,
     focus: 'center',
     pagination: false,
-    autoWidth: true 
+    autoWidth: true
 })
-splidesInstance.add('#blog-slider', { type: 'loop', arrows: false })
+splidesInstance.add('#blog-slider', { type: 'loop', arrows: false, pagination: false, })
 
 const chairtypesButtons = document.querySelectorAll(".chairtypes__button")
 chairtypesButtons[0].addEventListener("click", () => {
@@ -25,11 +25,30 @@ chairtypesButtons[1].addEventListener("click", () => {
 })
 
 const blogButtons = document.querySelectorAll(".blog__button")
+const blogContents = document.querySelectorAll(".blog__content")
+
+const removeActive = () => {
+    blogContents.forEach(e => e.removeAttribute("active"))
+}
+const setActive = (index: number) => {
+    blogContents.forEach(e => {
+        if (e.getAttribute("data-id") === String(index))
+            e.setAttribute("active", "active")
+    })
+}
+
 blogButtons[0].addEventListener("click", () => {
     splidesInstance.instances['#blog-slider'].go('>')
+    removeActive()
+    setActive(splidesInstance.instances['#blog-slider'].index)
+    console.log(splidesInstance.instances['#blog-slider'].index)
+
 })
 blogButtons[1].addEventListener("click", () => {
     splidesInstance.instances['#blog-slider'].go('<')
+    removeActive()
+    setActive(splidesInstance.instances['#blog-slider'].index)
+    console.log(splidesInstance.instances['#blog-slider'].index)
 })
 
 const audio: HTMLAudioElement | null = document.querySelector("audio")

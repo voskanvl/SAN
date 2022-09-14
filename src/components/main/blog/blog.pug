@@ -3,14 +3,16 @@ include ../../../pug/mixins/splide.pug
     .blog__left
         +splide("blog-slider",blog)
             img(src=val.img)
-    .blog__right 
+    .blog__right
         div Блог
-        .panel__title 
-            span kjkj 
-            strong kjlkjlkj
-            span kjlkj
-        p.middle__text njlkjljklk
-        a.button(href="#") подробнее
+        .blog__list
+            each i,idx in blog
+                .blog__content(data-id=idx) 
+                    .panel__title 
+                        each word in i.title.split(" ")
+                            span= word
+                    p.middle__text= i.text
+                    a.button(href="#") подробнее
         .blog__controls
             .blog__button.next.next_left
                 span.title влево
