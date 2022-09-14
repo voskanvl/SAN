@@ -1,0 +1,20 @@
+include ../../../pug/mixins/splide.pug
+.blog 
+    .blog__left
+        +splide("blog-slider",blog)
+            img(src=val.img)
+    .blog__right 
+        div Блог
+        .panel__title 
+            span kjkj 
+            strong kjlkjlkj
+            span kjlkj
+        p.middle__text njlkjljklk
+        a.button(href="#") подробнее
+        .blog__controls
+            .blog__button.next.next_left
+                span.title влево
+                img.arrow(src="../../../../assets/icons/Arrow 1.png")
+            .blog__button.next.next_right
+                span.title вправо
+                img.arrow_180(src="../../../../assets/icons/Arrow 1.png")

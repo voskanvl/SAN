@@ -1,0 +1,31 @@
+.blog
+    display: grid
+    grid-template-columns: 7fr 5fr
+    width: min(1200px, 95vw)
+    margin-inline: auto
+    height: 478px
+
+    &__container
+        margin-bottom: 110px
+
+    &__left
+        border-radius: 10px 0 0 10px
+        overflow: hidden
+        display: grid
+        place-items: center
+        img
+            width: 110%
+
+    &__right
+        padding: 39px 54px
+        position: relative
+        .panel__title
+            color: #0A2C50
+            margin-bottom: 1em
+
+    &__controls
+        display: flex
+        justify-content: space-between
+        position: absolute
+        bottom: 1em
+        width: 100%
