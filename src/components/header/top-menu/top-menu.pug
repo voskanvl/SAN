@@ -1,0 +1,16 @@
+header.header
+    img.logo(src="../../../../assets/svg/logo.svg")
+    button.threedots
+        img(src="../../../../assets/svg/threedots.svg")
+    ul.top-menu
+        each i in menu 
+            li.top-menu__item
+                a(href= i.href)= i.name
+                if (i.submenu)
+                    ul.top-menu__submenu
+                        each j in i.submenu 
+                            li.top-menu__item 
+                                a(href= i.href)= j
+    button.threedots
+        img(src="../../../../assets/svg/telephone.svg")
+    a.phone(href="tel:/"+common.phone)= common.phone

@@ -1,0 +1,27 @@
+.top-menu
+    margin-bottom: 166px
+    position: relative
+    &__item
+        list-style: none
+        display: inline-block
+        margin-right: min(38px, 1vw)
+        padding: 46px 0
+        & > a
+            color: #5E5E5E
+            font-size: 18px
+            font-weight: 300
+            text-decoration: none
+        &:hover > a
+            color: #0F4378
+            & ~ .top-menu__submenu
+                display: block
+
+    &__submenu
+        position: absolute
+        display: none
+        top: 98%
+        border-radius: 13px
+        border: 1px solid #0F4378
+        padding: 0 13px
+        & > .top-menu__item
+            padding: 29px 0
