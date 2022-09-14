@@ -3,7 +3,6 @@ import { MSplides } from "./initSlides"
 import '@splidejs/splide/css'
 
 const splidesInstance = new MSplides()
-splidesInstance.add('#test', { type: 'loop', autoplay: true })
 splidesInstance.add('#chairtypes', {
     type: 'loop',
     autoplay: false,
@@ -31,6 +30,7 @@ const removeActive = () => {
     blogContents.forEach(e => e.removeAttribute("active"))
 }
 const setActive = (index: number) => {
+    removeActive()
     blogContents.forEach(e => {
         if (e.getAttribute("data-id") === String(index))
             e.setAttribute("active", "active")
@@ -39,7 +39,6 @@ const setActive = (index: number) => {
 
 blogButtons[0].addEventListener("click", () => {
     splidesInstance.instances['#blog-slider'].go('>')
-    removeActive()
     setActive(splidesInstance.instances['#blog-slider'].index)
     console.log(splidesInstance.instances['#blog-slider'].index)
 
@@ -51,8 +50,4 @@ blogButtons[1].addEventListener("click", () => {
     console.log(splidesInstance.instances['#blog-slider'].index)
 })
 
-const audio: HTMLAudioElement | null = document.querySelector("audio")
-const next = document.querySelector(".next")
-next?.addEventListener("click", () => {
-    audio!.currentTime += 2
-})
+setActive(0)

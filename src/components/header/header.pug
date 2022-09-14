@@ -1,6 +1,3 @@
-include ../../pug/mixins/test.pug
-include "../common/mixins/splide.pug"
-include ../common/button/button.pug
 
 each i in menu 
     a(href= i.href)= i.name
@@ -9,12 +6,6 @@ each i in Object.keys(common)
     div #{i} - #{common[i]}
 
 
-+splide('test',[1,2,3])
-        p hjlkjhlkjlkj
-        h1= val
 
-
-audio(src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" controls)
-button.next next
             
 
