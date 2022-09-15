@@ -1,6 +1,7 @@
+$min-size: 150px
 .catalogItem
-    width: min(136px, 15vw)
-    height: 138px
+    width: 136px
+    height: 136px
     border-radius: 10px
     box-shadow: 0 10px 10px #0004
     background: #F4F5F7
@@ -9,8 +10,10 @@
     align-items: center
     justify-content: center
     margin-inline: 2rem
-    & > svg > path
-        fill: inherit
+    & > svg
+        width: 80%
+        & > path
+            fill: inherit
     &:hover
         box-shadow: none
         background: #7D91A5

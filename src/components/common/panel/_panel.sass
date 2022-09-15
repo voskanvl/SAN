@@ -7,7 +7,7 @@
     &__title
         & > *
             text-transform: uppercase
-            font-size: 25px
+            font-size: clamp(14px, 2vw,25px)
         & > strong
             padding-right: .3em
 
@@ -28,6 +28,9 @@
     &_right
         .panel__content
             margin-left: 40%
+            @media screen and ( max-width: 1024px )
+                margin-left: 0%
+
         .panel__img
             left: -16%
             top: 36%

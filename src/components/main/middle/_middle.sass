@@ -1,6 +1,10 @@
 .middle
     display: grid
     grid-template-columns: 2fr 1fr
+    @media screen and ( max-width: 1024px )
+        grid-template-columns: 1fr
+        grid-template-rows: 1fr 1fr
+
     &.panel
         padding: 0
 
@@ -16,6 +20,16 @@
         font-size: 14px
         font-weight: 300
         margin-bottom: 46px
+        @media screen and ( max-width: 1024px  )
+            overflow: hidden
+            text-overflow: ellipsis
+            display: -moz-box
+            -moz-box-orient: vertical
+            display: -webkit-box
+            -webkit-line-clamp: 5
+            -webkit-box-orient: vertical
+            line-clamp: 5
+            box-orient: vertical
 
     & .panel__title
         margin-bottom: 13px
@@ -29,3 +43,6 @@
         position: absolute
         top: 0
         left: -50%
+        @media screen and ( max-width: 1024px )
+            width: 100%
+            left: unset
