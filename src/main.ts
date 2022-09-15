@@ -50,4 +50,7 @@ blogButtons[1].addEventListener("click", () => {
     console.log(splidesInstance.instances['#blog-slider'].index)
 })
 
+splidesInstance.instances['#blog-slider'].on("moved",()=>setActive(splidesInstance.instances['#blog-slider'].index))
+
+
 setActive(0)
