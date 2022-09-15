@@ -1,10 +1,17 @@
 .top-menu
     margin-bottom: 80px
     position: relative
+    display: flex
+    column-gap: 1.5vw
+    @media screen and ( max-width: 1024px )
+        display: none
+
     &__item
+        flex: 1
         list-style: none
         display: inline-block
-        margin-right: min(18px, 1vw)
+        max-width: 80px
+        // margin-right: min(18px, 1vw)
         padding: 46px 0
         & > a
             color: #5E5E5E
@@ -25,3 +32,4 @@
         padding: 0 13px
         & > .top-menu__item
             padding: 29px 0
+            max-width: unset
