@@ -2,9 +2,10 @@ header.header
     img.top-back(src="../../../../assets/svg/top-back.svg")
     img.middle-rect(src="../../../../assets/svg/middle-rect.svg")
     img.bottom-rect(src="../../../../assets/svg/bottom-rect.svg")
-    a.logo(href="/")
-        img(src="../../../../assets/svg/logo.svg")
-        button.threedots
+    .logo
+        a(href="/")
+            img(src="../../../../assets/svg/logo.svg")
+        button.threedots#trigger
             img(src="../../../../assets/svg/threedots.svg")
     ul.top-menu
         each i in menu 

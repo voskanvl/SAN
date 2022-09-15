@@ -21,9 +21,10 @@
         &:hover > a
             color: #0F4378
             & ~ .top-menu__submenu
-                display: block
+                display: flex
 
     &__submenu
+        column-gap: 1.5vw
         position: absolute
         display: none
         top: 98%
@@ -33,3 +34,4 @@
         & > .top-menu__item
             padding: 29px 0
             max-width: unset
+            white-space: nowrap

@@ -1,6 +1,7 @@
 import './sass/style.sass'
 import { MSplides } from "./initSlides"
 import '@splidejs/splide/css'
+import toggleSidePanel from "./toggleSlidePanel"
 
 const splidesInstance = new MSplides()
 splidesInstance.add('#chairtypes', {
@@ -52,5 +53,6 @@ blogButtons[1].addEventListener("click", () => {
 
 splidesInstance.instances['#blog-slider'].on("moved",()=>setActive(splidesInstance.instances['#blog-slider'].index))
 
-
 setActive(0)
+
+toggleSidePanel(".side-panel","#trigger")
