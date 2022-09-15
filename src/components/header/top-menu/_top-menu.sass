@@ -22,8 +22,13 @@
             color: #0F4378
             & ~ .top-menu__submenu
                 display: flex
+                justify-content: flex-start
+                column-gap: 1.5vw
+                & > li
+                    flex: 0
 
     &__submenu
+        width: 100%
         column-gap: 1.5vw
         position: absolute
         display: none
