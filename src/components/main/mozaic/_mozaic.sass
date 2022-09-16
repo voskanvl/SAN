@@ -4,8 +4,8 @@
     margin-inline: auto
     //590 + 286 + 286
     // grid-template-columns: 1fr 0.5fr 1fr 1fr
-    grid-template-columns: 23.833333% 25.333333% 23.833333% 23.833333%
-    grid-gap: 20px 18px
+    grid-template-columns: calc(388/1200*100%) calc((590 - 388)/1200*100%) calc(286/1200*100%) calc(286/1200*100%)
+    grid-gap: 13px 12px
     grid-template-rows: repeat(2,263px)
     margin-bottom: 100px
     @media screen and ( max-width: 1024px )
@@ -34,8 +34,9 @@
     & > .panel:nth-child(3)
         grid-area: 1 / 4 / 3 / 5
         & .panel__img
+            width: 100%
             top: 10%
-            left: 65%
+            left: 50%
         @media screen and ( max-width: 1024px )
             grid-area: 3 / 1 / 4 / 4
         @media screen and ( max-width: 420px )
