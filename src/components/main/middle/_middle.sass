@@ -19,18 +19,19 @@
     &__text
         font-size: 14px
         font-weight: 300
-        margin-bottom: 76px
+        overflow: hidden
+        text-overflow: ellipsis
+        display: -moz-box
+        -moz-box-orient: vertical
+        display: -webkit-box
+        -webkit-line-clamp: 5
+        -webkit-box-orient: vertical
+        line-clamp: 5
+        box-orient: vertical
+        margin-bottom: 5vh
         @media screen and ( max-width: 1024px  )
-            overflow: hidden
-            text-overflow: ellipsis
-            display: -moz-box
-            -moz-box-orient: vertical
-            display: -webkit-box
             -webkit-line-clamp: 3
-            -webkit-box-orient: vertical
             line-clamp: 3
-            box-orient: vertical
-            margin-bottom: 5vh
 
     & .panel__title
         margin-bottom: 26px
