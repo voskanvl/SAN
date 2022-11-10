@@ -1,4 +1,5 @@
 .selector
+    position: relative
     font-family: sans-serif
     color: #5E5E5E
     border: 1px dashed #2E72B9
@@ -11,7 +12,7 @@
     &:hover
         height: 200px
         // overflow-y: scroll
-        & > .selector__item > .selector__arrow
+        & >  .selector__arrow
             transform: rotate(180deg)
 
     &__circ
@@ -39,6 +40,7 @@
 
     &__arrow
         position: absolute
-        right: 0
+        right: 12px
+        top: 12px
         transform: rotate(0deg)
         transition: transform 1s

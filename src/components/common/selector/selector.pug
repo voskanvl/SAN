@@ -1,9 +1,9 @@
 mixin selector(array)
   .selector
+    img.selector__arrow(src="../../../../assets/icons/Arrow-down.svg",alt="arrow")
     .selector__item
       .selector__circ(style="background:"+array[0].color)
       .selector__name= array[0].name
-      img.selector__arrow(src="../../../../assets/icons/Arrow-down.svg",alt="arrow")
     .selector__list
       each i, idx in array
         if(idx !== 0)
