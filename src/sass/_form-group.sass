@@ -1,0 +1,53 @@
+@import @var
+.form-group
+
+    display: flex
+    column-gap: 20px
+    &[color]
+        column-gap: 45px
+    &__item
+        --color: #000
+        position: relative
+        & > input
+            cursor: pointer
+            position: absolute
+            inset: 0
+            z-index: 2
+            opacity: 0
+            min-width: 28px
+            min-height: 28px
+            &:hover
+                & + label
+                    box-shadow: 0 2px 3px #0003
+                & + .form-group__color::after
+                    inset: -3px
+            &:checked
+                & + label
+                    box-shadow: none
+                    background: #7D91A5
+                    color: #fff
+                & + .form-group__color::after
+                    inset: -4px
+
+        & > label
+            border-radius: 5px
+            padding: 9px 25px
+            background: #F4F5F7
+            box-shadow: 0 4px 7px #0003
+            transition: .3s
+            cursor: pointer
+    &__color
+        cursor: pointer
+        position: absolute
+        padding: 3px
+        border-radius: 50%
+        width: 28px
+        height: 28px
+        background: var(--color)
+        &::after
+            content: ""
+            position: absolute
+            border: 1px solid var(--color)
+            border-radius: 50%
+            inset: 10px
+            transition: .4s

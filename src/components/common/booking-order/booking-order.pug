@@ -1,0 +1,30 @@
+include ../selector/selector.pug
+.booking-order
+    h2.booking-order__title 
+        strong ФОРМА
+        span ЗАКАЗА
+    label(for="") Наименование организации*
+        input(type="text", name="name", required)
+    label(for="") Номер телефона*
+        input(type="tel", name="phone", required)
+    label(for="") Почта
+        input(type="email", name="email")
+    .booking-order__split 
+        - 
+            let colors=[
+                {name: "Бежевый", color:"#F7EBD8", id:"1"},
+                {name: "Бирюза", color:"#9CAEB8", id:"2"},
+                {name: "Бирюза", color:"#4E0A1C", id:"3"},
+                {name: "Черный", color:"#000", id:"4"},
+                {name: "Серый", color:"#777", id:"5"},
+            ]
+        label(for="") Тип стула 
+            +selector([{name:"Профиль"}, {name:"Конус"}, {name:"Хром"}])
+                .selector__circ(style="background:"+val.color)
+                .name= val.name
+        label(for="") Цвет
+            +selector(colors)
+                .selector__circ(style="background:"+val.color)
+                .name= val.name
+    label(for="") Комментарий к заказу
+        textarea(name="comment", cols="30", rows="10", placeholder="Добрый день! Хотим заказать стулья в кол-ве 30 шт. Спасибо!")

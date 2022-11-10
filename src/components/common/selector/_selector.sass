@@ -1,0 +1,44 @@
+.selector
+    font-family: sans-serif
+    color: #5E5E5E
+    border: 1px dashed #2E72B9
+    padding: 0px 10px
+    border-radius: 4px
+    height: 45px
+    overflow: hidden
+    transition: 1s
+
+    &:hover
+        height: 200px
+        // overflow-y: scroll
+        & > .selector__item > .selector__arrow
+            transform: rotate(180deg)
+
+    &__circ
+        width: 25px
+        height: 25px
+        border-radius: 50%
+    &__item
+        display: flex
+        align-items: center
+        column-gap: 9px
+        padding-block: 10px
+        cursor: pointer
+        position: relative
+
+    &__list
+        height: 160px
+        overflow: scroll
+        transition: 1s
+        &::-webkit-scrollbar
+            width: 3px
+        &::-webkit-scrollbar-track
+            background: #eee
+        &::-webkit-scrollbar-thumb
+            background: #222
+
+    &__arrow
+        position: absolute
+        right: 0
+        transform: rotate(0deg)
+        transition: transform 1s

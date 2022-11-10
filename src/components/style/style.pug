@@ -1,0 +1,47 @@
+include ../common/breads/breads.pug
+.container
+    +breads([{name:"Стулья",href:"#"},{name:"Стиль",href:"#"}])
+    .style
+        .style__galary 
+            each i in [1,2,3]
+                img(src="../../../assets/images/style/"+i+".jpg")
+        form.style__form
+            .style__title
+                strong СТУЛ 
+                span “СТИЛЬ”
+            fieldset 
+                legend Тип стула
+                .form-group
+                    each i in [{name:"Конус",id:0},{name:"Профиль",id:1},{name:"Хром",id:2}]
+                        .form-group__item
+                            input(type="radio", name="type", id="type"+i.id)
+                            label(for="type"+i.id)= i.name
+            fieldset 
+                legend Цвет
+                .form-group(color)
+                    -
+                        const arr = [
+                            {color:"#F7EBD8",id:300},
+                            {color:"#9CAEB8",id:301},
+                            {color:"#4E0A1C",id:302},
+                            {color:"#102B1E",id:303},
+                            {color:"#A09992",id:304},
+                            {color:"#26231E",id:305},
+                            {color:"#7C534D",id:306},
+                            {color:"#C3C2C6",id:307},
+                            {color:"#4E5357",id:308},
+                            {color:"#51565C",id:309},
+                            {color:"#D9D9D9",id:310},
+                        ]
+                    each i in arr
+                        .form-group__item(style="--color:"+i.color)
+                            input(type="radio", name="color", id="color"+i.id)
+                            .form-group__color
+            fieldset 
+                legend Размер
+                h3.title 47 см х 52 см х 81 см
+                p.style__text 
+                    |Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст.." Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много версий.
+            
+            .style__order 
+                include ../common/booking-order/booking-order.pug

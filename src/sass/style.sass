@@ -1,9 +1,16 @@
 @import "./_import"
+@import "@var"
 *,*::after,*::before
     box-sizing: border-box
     margin: 0
     padding: 0
     font-family: Inter, sans-serif
+
+html
+    scroll-behavior: smooth
+
+.container
+    +wid(1203px)
 
 .arrow
     &_180
@@ -100,3 +107,7 @@
     background-size: contain
     width: 100px
     height: 35px
+
+h3.title
+    font-size: 20px
+    font-weight: 500

@@ -1,0 +1,5 @@
+mixin breads(x)
+    .breads
+        a(href="/") Главная
+        each i in x
+            a(href=i.href)= " - "+i.name
