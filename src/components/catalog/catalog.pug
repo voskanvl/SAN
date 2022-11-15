@@ -10,9 +10,9 @@ include ../common/breads/breads.pug
     pre= JSON.stringify(roles)
     +tabs(roles)
     ul.list
-        each i in categories
+        each i, idx in categories
             each item in i.list 
-                .list__item
+                .list__item(data-index=i.role, active=idx===0)
                     if(item.img)
                         img(src=i.path+item.img)
                     else 
