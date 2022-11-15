@@ -12,10 +12,11 @@ include ../common/breads/breads.pug
     ul.list
         each i, idx in categories
             each item in i.list 
-                .list__item(data-index=i.role, active=idx===0)
-                    if(item.img)
-                        img(src=i.path+item.img)
-                    else 
-                        img(src=type.icon)
-                    a(href="#"+item.id)= item.name
+                li.list__item(data-index=i.role, active=idx===0)
+                    a(href="#"+item.id)
+                        if(item.img)
+                            img(src=i.path+item.img)
+                        else 
+                            img(src=type.icon)
+                        span= item.name
 
