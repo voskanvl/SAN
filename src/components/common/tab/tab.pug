@@ -1,0 +1,5 @@
+mixin tab(role, active=false)
+    button.tab-item(data-index=role.role, active=active)
+        span= role.role 
+        img(src=role.icon)
+        

@@ -1,0 +1,71 @@
+model:
+    # - taxonomy:
+    #       - catagory:
+    #             - id: 101
+    #               name: Стулья
+    #               icon: "../../assets/svg/catalog/chair.svg"
+    #             - id: 102
+    #               name: Столы
+    #               icon: "../../assets/svg/catalog/table.svg"
+    #             - id: 103
+    #               name: Табуретки
+    #               icon: "../../assets/svg/catalog/stool.svg"
+    #             - id: 104
+    #               name: Шкафы
+    #               icon: "../../assets/svg/catalog/cupboard.svg"
+    #             - id: 105
+    #               name: Подстолья
+    #               icon: "../../assets/svg/catalog/cupboard.svg"
+    - type: Стулья
+      icon: "../../assets/svg/catalog/chair.svg"
+      categories:
+          - role: Барные
+            icon: "../../assets/svg/catalog/chair.svg"
+            path: "../../assets/images/catalog/chairs/"
+            list:
+                - id: 101
+                  name: Браво
+                  img: "bravo.png"
+                - id: 102
+                  name: Стиль
+                  img: "style.png"
+                - id: 103
+                  name: Ники
+                  img: "niki.png"
+                - id: 104
+                  name: Лорд
+                  img: "lord.png"
+                - id: 105
+                  name: Ромашка
+                  img: "chamomile.png"
+                - id: 106
+                  name: Марсель
+                  img: "marsell.png"
+                - id: 107
+                  name: Трио
+                  img: "trio.png"
+                - id: 108
+                  name: Трилогия
+                  img: "trilogy.png"
+                - id: 109
+                  name: Моцарт
+                - id: 110
+                  name: Мажор
+                  img: "major.png"
+                - id: 111
+                  name: Прага
+                - id: 110
+                  name: Диез
+                  img: "diez.png"
+          - role: Табуретки
+            icon: "../../assets/svg/catalog/stool.svg"
+            path: "../../assets/images/catalog/chairs/"
+            list:
+                - id: 202
+                  name: Премиум
+                  img: "premium.png"
+                - id: 203
+                  name: Сфера
+                  img: "sphere.png"
+                - id: 204
+                  name: Квадрат
