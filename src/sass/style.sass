@@ -118,9 +118,22 @@ h3.title
 
     &__item
         list-style: none
+        height: 310px
+        width: 285px
+        opacity: 1
+        transition: opacity .6s, height .4s .2s, width .6s .6s
+        overflow: hidden
+        will-change: height, width, opacity
         & > a
             display: flex
             flex-direction: column
             align-items: center
         &:not([active])
-            display: none
+            height: 0
+            width: 0
+            opacity: 0
+            // display: none
+
+.tabs
+    display: flex
+    justify-content: center
