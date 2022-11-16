@@ -1,5 +1,8 @@
 include ../common/tabs/tabs.pug
 include ../common/breads/breads.pug
+include ../common/float-blocks/float-blocks.pug
+
++floatBlocks(6)
 .container
     +breads([{name:"Стулья",href:"#"}])
     - 
@@ -7,7 +10,6 @@ include ../common/breads/breads.pug
         const type =model.filter(c=>c.type.toLowerCase()==='стулья')[0]
         const categories = type.categories
         const roles = categories.map(({role,icon})=>({role, icon}))
-    pre= JSON.stringify(roles)
     +tabs(roles)
     ul.list
         each i, idx in categories

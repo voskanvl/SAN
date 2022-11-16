@@ -1,5 +1,6 @@
-mixin selector(array)
-  .selector
+mixin selector(array, type, height="200px")
+  input(type="text", name=type, hidden)
+  .selector(style="--height:"+height)
     img.selector__arrow(src="../../../../assets/icons/Arrow-down.svg",alt="arrow")
     .selector__item
       .selector__circ(style="background:"+array[0].color)

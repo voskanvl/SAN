@@ -19,11 +19,11 @@ include ../selector/selector.pug
                 {name: "Серый", color:"#777", id:"5"},
             ]
         label(for="") Тип стула 
-            +selector([{name:"Профиль"}, {name:"Конус"}, {name:"Хром"}])
+            +selector([{name:"Профиль"}, {name:"Конус"}, {name:"Хром"}],"type", "150px")
                 .selector__circ(style="background:"+val.color)
                 .name= val.name
         label(for="") Цвет
-            +selector(colors)
+            +selector(colors,"color")
                 .selector__circ(style="background:"+val.color)
                 .name= val.name
     label(for="") Комментарий к заказу

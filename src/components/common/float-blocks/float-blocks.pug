@@ -1,0 +1,8 @@
+mixin floatBlocks(flag=7)
+    .float-blocks
+        if(flag & 1)
+            img.top-back(src="../../../../assets/svg/top-back.svg")
+        if(flag & 2)
+            img.middle-rect(src="../../../../assets/svg/middle-rect.svg")
+        if(flag & 4)
+            img.bottom-rect(src="../../../../assets/svg/bottom-rect.svg")
