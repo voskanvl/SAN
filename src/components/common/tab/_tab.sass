@@ -1,12 +1,23 @@
 .tab
+    @extend .catalogItem
     border: none
     cursor: pointer
+    transition: box-shadow .6s
     &__img
         & > svg
             fill: #000
-    &:hover > .tab__img > svg
-        fill: #fff
+    &:hover
+        background: #F4F5F7
+        box-shadow: 0 0px 6px rgb(0 0 0 / 27%)
+        transition: box-shadow .6s
 
     & > span
         font-size: 25px
         font-weight: 300
+
+    &[active]
+        box-shadow: none
+        background: #7D91A5
+        transition: background .5s
+        & svg
+            fill: #fff

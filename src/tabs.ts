@@ -42,6 +42,7 @@ export function tabs() {
             storeTabs.currentTab && storeTabs.currentTab?.removeAttribute("active");
             storeTabs.currentTab = target;
             storeTabs.currentRole = target?.dataset.index || "";
+            storeTabs.currentTab && storeTabs.currentTab?.setAttribute("active", "active");
         });
 }
 function detectActiveTab(store: IStore): void {
