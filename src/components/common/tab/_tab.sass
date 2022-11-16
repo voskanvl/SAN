@@ -1,2 +1,12 @@
 .tab
-    display: block
+    border: none
+    cursor: pointer
+    &__img
+        & > svg
+            fill: #000
+    &:hover > .tab__img > svg
+        fill: #fff
+
+    & > span
+        font-size: 25px
+        font-weight: 300

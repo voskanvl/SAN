@@ -20,7 +20,7 @@ model:
       icon: "../../assets/svg/catalog/chair.svg"
       categories:
           - role: Барные
-            icon: "../../assets/svg/catalog/chair.svg"
+            icon: "Барные"
             path: "../../assets/images/catalog/chairs/"
             list:
                 - id: 101
@@ -58,7 +58,7 @@ model:
                   name: Диез
                   img: "diez.png"
           - role: Табуретки
-            icon: "../../assets/svg/catalog/stool.svg"
+            icon: "Табуретки"
             path: "../../assets/images/catalog/chairs/"
             list:
                 - id: 202

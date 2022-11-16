@@ -1,2 +1,42 @@
 .float-blocks
-    display: block
+    position: absolute
+    z-index: -1
+    inset: 0
+    & > img
+        display: block
+
+    // & > .bottom-rect
+    //     @media screen and ( max-height: 800px )
+    //         display: none
+
+.top-back, .middle-rect, .bottom-rect
+    // position: absolute
+    top: 0
+    left: 0
+    z-index: -1
+
+.top-back
+    @media screen and ( max-width: 1024px )
+        left: unset
+        right: 21vw
+
+.middle-rect
+    margin-top: 534px
+
+.bottom-rect
+    // top: 2120px
+    left: unset
+    right: 0
+    margin-top: 264px
+    margin-left: auto
+    height: 653px
+    // transition: height .2s
+    // clip-path: polygon(0 0, 80% 0, 80% 100%, 0% 100%)
+    &[hidden]
+        height: 0
+    &.absolute
+        position: fixed
+        top: unset
+        left: unset
+        bottom: 0
+        right: 0

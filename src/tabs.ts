@@ -1,3 +1,5 @@
+import hideTargetLowerFooter from "./hideTargetUpperFooter";
+
 export interface IStore {
     currentTab: HTMLElement | null;
     currentRole?: string;
@@ -35,10 +37,11 @@ export function tabs() {
     tabsContainerElement &&
         tabsContainerElement.addEventListener("click", (e: Event) => {
             const target = (e.target as HTMLElement).closest<HTMLButtonElement>(".tab");
+            console.log("🚀 ~ target", target);
+            if (!target) return;
             storeTabs.currentTab && storeTabs.currentTab?.removeAttribute("active");
             storeTabs.currentTab = target;
-            storeTabs.currentRole = target?.dataset.index;
-            console.log(storeTabs);
+            storeTabs.currentRole = target?.dataset.index || "";
         });
 }
 function detectActiveTab(store: IStore): void {

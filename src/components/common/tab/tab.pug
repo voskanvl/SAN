@@ -1,5 +1,4 @@
 mixin tab(role, active=false)
     button.tab(data-index=role.role, active=active)
-        span= role.role 
-        img(src=role.icon)
+        .tab__img!= catalogItem[role.role]
         

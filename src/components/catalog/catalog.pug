@@ -10,15 +10,16 @@ include ../common/float-blocks/float-blocks.pug
         const type =model.filter(c=>c.type.toLowerCase()==='стулья')[0]
         const categories = type.categories
         const roles = categories.map(({role,icon})=>({role, icon}))
+    h2.category-title стулья
     +tabs(roles)
     ul.list
         each i, idx in categories
             each item in i.list 
                 li.list__item(data-index=i.role, active=idx===0)
-                    a(href="#"+item.id)
                         if(item.img)
-                            img(src=i.path+item.img)
+                            a.list__href(href="#"+item.id)
+                                img(src=i.path+item.img)
                         else 
-                            img(src=type.icon)
+                            a.list__href(href="#"+item.id)!= catalogItem[i.icon]
                         span= item.name
 
