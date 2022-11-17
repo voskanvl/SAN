@@ -8,7 +8,8 @@
         "build": "tsc && vite build",
         "preview": "vite preview",
         "createComponent": " bash ./create-component.bash",
-        "create SASS": " bash ./create-sass.bash"
+        "create SASS": " bash ./create-sass.bash",
+        "tar": "tar -czvf  san.tar.gz ./dist "
     },
     "devDependencies": {
         "fast-glob": "^3.2.11",

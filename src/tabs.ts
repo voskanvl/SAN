@@ -1,5 +1,3 @@
-import hideTargetLowerFooter from "./hideTargetUpperFooter";
-
 export interface IStore {
     currentTab: HTMLElement | null;
     currentRole?: string;
