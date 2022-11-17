@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Мебель SAN</title>
+        <script
+            src="https://api-maps.yandex.ru/2.1/?apikey=9b27ecf5-fac6-419d-b8f5-184a9818db91&lang=ru_RU"
+            type="text/javascript"
+        ></script>
+    </head>
+    <body>
+        <template data-type="pug" data-src="./src/pug/contacts.pug"></template>
+        <script type="text/javascript">
+            var map = ymaps.ready(function () {
+                const MAX_RESOLUTION = 1920;
+                const QUERY_RESOLUTION = 768;
+                const COORDS = [53.167352, 45.03118];
+                const map = new ymaps.Map("map", {
+                    center: COORDS,
+                    zoom: 16,
+                });
+                var myPlacemark0 = new ymaps.Placemark(COORDS, null, {
+                    preset: "'islands#blueAutoIcon",
+                    iconColor: "#EE9B01",
+                });
+                map.geoObjects.add(myPlacemark0);
+                const resolution = matchMedia(`(max-width: ${QUERY_RESOLUTION}px)`).matches;
+                resolution && map.behaviors.disable("scrollZoom");
+                resolution && map.behaviors.disable("drag");
+                window.addEventListener("resize", e => {
+                    const less650 = matchMedia(`(max-width: ${QUERY_RESOLUTION}px)`).matches;
+                    // const c = 0;
+                    map.setCenter(COORDS);
+                    less650
+                        ? map.behaviors.disable("scrollZoom")
+                        : map.behaviors.enable("scrollZoom");
+                    less650 ? map.behaviors.disable("drag") : map.behaviors.enable("drag");
+                });
+            });
+        </script>
+        <script type="module" src="/src/main.ts" defer></script>
+    </body>
+</html>

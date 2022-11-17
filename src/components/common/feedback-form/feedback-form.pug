@@ -1,0 +1,13 @@
+form.booking-order
+    h2.booking-order__title 
+        strong ОБРАТНАЯ
+        span СВЯЗЬ
+    label(for="") Наименование организации*
+        input(type="text", name="name", required)
+    label(for="") Номер телефона*
+        input(type="tel", name="phone", required)
+    label(for="") Почта
+        input(type="email", name="email")
+    label(for="") Комментарий к заказу
+        textarea(name="comment", cols="30", rows="5", placeholder="Добрый день! Хотим заказать стулья в кол-ве 30 шт. Спасибо!")
+    input.button(type="submit", value="ОТПРАВИТЬ")

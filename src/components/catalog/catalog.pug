@@ -10,7 +10,7 @@ include ../common/float-blocks/float-blocks.pug
         const type =model.filter(c=>c.type.toLowerCase()==='стулья')[0]
         const categories = type.categories
         const roles = categories.map(({role,icon})=>({role, icon}))
-    h2.category-title стулья
+    h2.main-title стулья
     +tabs(roles)
     ul.list
         each i, idx in categories

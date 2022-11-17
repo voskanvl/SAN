@@ -1,0 +1,20 @@
+.contacts
+    margin-bottom: 110px
+    &__container
+        display: grid
+        grid-template-areas: "contacts form" "map form"
+        gap: 24px
+        grid-template-columns: 55.6667% 42.3333%
+        grid-template-rows: 325px 270px
+
+        & > *:nth-child(1)
+            grid-area: contacts
+        & > *:nth-child(2)
+            grid-area: map
+        & > *:nth-child(3)
+            grid-area: form
+
+        @media screen and ( max-width: 1024px )
+            grid-template-areas: "contacts" "form" "map"
+            grid-template-columns: 100%
+            grid-template-rows: auto

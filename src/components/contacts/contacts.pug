@@ -1,0 +1,10 @@
+include ../common/breads/breads.pug
+
+.container
+    +breads([{name:"Контакты",href:"#"}])
+    h2.main-title стулья
+    .contacts 
+        .contacts__container 
+            include   ../common/contacts-data/contacts-data.pug
+            #map
+            include ../common/feedback-form/feedback-form.pug    

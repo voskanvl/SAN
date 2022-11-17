@@ -1,0 +1,29 @@
+.contacts-data
+    &__container
+        @extend .booking-order
+        display: grid
+        grid-template-columns: 247px 1fr
+        gap: 20px
+        place-items: start center
+        @media screen and ( max-width: 768px )
+            grid-template-columns: 100%
+            place-items: unset
+
+    &__left-side
+        display: grid
+        grid-template-columns: 100%
+        gap: 25px
+    &__right-side
+        @extend .contacts-data__left-side
+        gap: 15px
+
+    &__caption
+        font-size: 16px
+        font-weight: 400
+
+    &__text
+        font-size: 16px
+        color: #5E5E5E
+
+        &_red
+            color: #FF0043
