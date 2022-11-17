@@ -7,4 +7,5 @@ mixin panel(type,title,img)
             a.panel__next.next(href="#") 
                 div Далее
                 img.arrow_180(src="../../../../assets/icons/Arrow 1.png")
-        img.panel__img(src=img)
+        if(title.toLowerCase()=="велюр")
+            img.panel__img(src=img)
