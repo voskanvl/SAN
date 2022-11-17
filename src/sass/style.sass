@@ -87,10 +87,14 @@ input, textarea
     & > .threedots
         padding: 0
         margin: 0
-    @media screen and ( max-width: 450px )
+    @media screen and ( max-width: 1190px )
         flex-direction: column
         row-gap: 1em
         margin-left: 0em
+    @media screen and ( max-width: 1024px )
+        flex-direction: row
+    @media screen and ( max-width: 425px )
+        flex-direction: column
 
 .cursor-down
     position: absolute
