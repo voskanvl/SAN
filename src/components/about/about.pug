@@ -1,0 +1,22 @@
+include ../common/tabs/tabs.pug
+include ../common/breads/breads.pug
+include ../common/float-blocks/float-blocks.pug
+
++floatBlocks(6)
+.container
+    +breads([{name:"О компании",href:"#"}])
+    h2.main-title О КОМПАНИИ
+    .about 
+        .about__left
+            p Приветствуем Вас на сайте производителя мебели компании "SAN"!
+
+            p Если Вам нужна качественная и недорогая мебель представленная в Каталоге,
+            p Вы можете позвонить по телефону и мы обсудим все вопросы Вашего заказа.
+
+            p Приглашаем к сотрудничеству оптовиков, салоны и магазины мебели, интернет-магазины, бары и рестораны. 
+
+            p Любые объемы! Высокое качество гарантировано!
+        .about__right
+            a(href="tel:"+common.phone)
+                img(src="../../../assets/images/iphone.png")
+include ../common/images-list/images-list.pug
