@@ -1,9 +1,13 @@
 .middle
-    display: grid
+    // display: grid
     grid-template-columns: 2fr 1fr
+    background: #F4F5F7 url("../../../../assets/images/modern-plastic-kids-chair-mockup-left-view 1.png") no-repeat
+    background-size: contain
+    background-position: 100% 0%
+
     @media screen and ( max-width: 1024px )
-        grid-template-columns: 1fr
-        grid-template-rows: 1fr 1fr
+        grid-template-columns: 100%
+        // grid-template-rows: 1fr 1fr
 
     &.panel
         padding: 0
@@ -15,6 +19,7 @@
 
     &__left
         padding: 61px
+        max-width: 701px
 
     &__text
         font-size: 14px
