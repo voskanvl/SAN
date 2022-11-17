@@ -1,0 +1,13 @@
+.container.page404__container
+    .page404 
+        .page404__left
+            ul.page404__404 
+                each i in [..."404"]
+                    li= i
+            h2.page404__ops OOOps!
+            p.page404__text Мы не можем найти страницу, которую вы ищите
+            .page404__button
+                button.button(onclick="history.go(-1);") ВЕРНУТЬСЯ НАЗАД
+        .page404__right
+            img(src="../../../assets/svg/404.svg")
+    
