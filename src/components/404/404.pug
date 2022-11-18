@@ -4,7 +4,9 @@
             ul.page404__404 
                 each i in [..."404"]
                     li= i
-            h2.page404__ops OOOps!
+            h2.page404__ops
+                each i in [..."OOOps!"]
+                    span= i
             p.page404__text Мы не можем найти страницу, которую вы ищите
             .page404__button
                 button.button(onclick="history.go(-1);") ВЕРНУТЬСЯ НАЗАД

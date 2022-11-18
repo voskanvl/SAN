@@ -27,14 +27,20 @@ $ops: 98
             font-size: min($text404/1920*100vw, $text404 * 1px)
             color: #FF0A47
             &:last-child
-                transform: rotate(30deg) translateY(calc(52/$text404*100%))
+                animation: swing4 .6s linear infinite
                 transform-origin: 0 50%
+                will-change: transform
     &__ops
         font-weight: bold
         font-size: min($ops/1920*100vw, $ops * 1px)
         color: #5E5E5E
         text-align: center
         margin-bottom: 14px
+
+        & > span:last-child
+            display: inline-block
+            transform-origin: bottom
+            animation: exclamation 1s .2s infinite both
 
     &__text
         text-align: center
@@ -65,3 +71,19 @@ $ops: 98
                 top: -30%
             // width: 120%
             // margin-left: -20%
+@keyframes swing4
+    0%
+        transform: rotateZ(30deg) rotateX(0deg) translateY(calc(52/$text404*100%))
+    33.3%
+        transform: rotateZ(30deg) rotateX(-20deg) translateY(calc(52/$text404*100%))
+
+    100%
+        transform: rotateZ(30deg) rotateX(0deg) translateY(calc(52/$text404*100%))
+
+@keyframes exclamation
+    0%
+        transform: rotate(0deg)
+    50%
+        transform: rotate(30deg)
+    100%
+        transform: rotate(0deg)
