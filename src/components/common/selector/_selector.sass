@@ -1,6 +1,6 @@
 .selector
     --height: 200px
-    position: relative
+    position: absolute
     font-family: sans-serif
     color: #5E5E5E
     border: 1px dashed #2E72B9
@@ -8,7 +8,10 @@
     border-radius: 4px
     height: 45px
     overflow: hidden
-    transition: 1s
+    transition: .5s
+    width: 100%
+    background: #F4F5F7
+    top: 26px
 
     &:hover
         height: var(--height)
@@ -26,6 +29,7 @@
         padding-block: 10px
         cursor: pointer
         position: relative
+        user-select: none
 
     &__list
         height: 160px

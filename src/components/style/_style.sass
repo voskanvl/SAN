@@ -1,20 +1,28 @@
 .style
     display: grid
-    grid-template-columns: repeat(2,1fr)
-    column-gap: 82px
+    grid-template-columns: 610fr 508fr
+    gap: min(82/1920*100vw,82px)
     margin-top: 70px
+    margin-bottom: 100px
+    @media screen and ( max-width: 768px )
+        grid-template-columns: 100%
 
     &__galary
         overflow: hidden
         border-radius: 15px
         display: flex
         flex-direction: column
+        justify-content: space-between
+        & > img
+            width: 100%
+            flex: 1
 
     &__title
         font-size: 30px
+        margin-bottom: 40px
 
     & fieldset
-        padding: 1rem
+        padding: 1rem 0
         border: none
         margin-bottom: 40px
     & legend
@@ -22,4 +30,4 @@
         color: #5e5e5e
 
     &__text
-        margin: 50px 0 48px
+        margin: 50px 0 0
