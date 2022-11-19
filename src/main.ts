@@ -7,6 +7,7 @@ import selector from "./selector";
 import bookingOrder from "./booking-order";
 import { tabs, storeTabs } from "./tabs";
 import hideTargetLowerFooter from "./hideTargetUpperFooter";
+import formOrder from "./form-order";
 
 slides();
 
@@ -29,3 +30,5 @@ bookingOrder();
 
 hideTargetLowerFooter();
 window.addEventListener("resize", hideTargetLowerFooter);
+
+formOrder();

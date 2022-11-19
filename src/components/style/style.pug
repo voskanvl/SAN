@@ -14,7 +14,7 @@ include ../common/breads/breads.pug
                 .form-group
                     each i in [{name:"Конус",id:0},{name:"Профиль",id:1},{name:"Хром",id:2}]
                         .form-group__item
-                            input(type="radio", name="type", id="type"+i.id)
+                            input(type="radio", name="type", id="type"+i.id, value=i.name)
                             label(for="type"+i.id)= i.name
             fieldset 
                 legend Цвет
@@ -33,9 +33,9 @@ include ../common/breads/breads.pug
                             {color:"#51565C",id:309},
                             {color:"#D9D9D9",id:310},
                         ]
-                    each i in arr
+                    each i,idx in arr
                         .form-group__item(style="--color:"+i.color)
-                            input(type="radio", name="color", id="color"+i.id)
+                            input(type="radio", name="color", id="color"+i.id, value=i.color)
                             .form-group__color
             fieldset 
                 legend Размер

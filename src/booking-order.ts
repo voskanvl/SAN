@@ -16,7 +16,6 @@ export default function bookingOrder() {
             }),
         {},
     );
-    console.log("🚀 ~ inputElements", inputElements);
     inputElements.phone &&
         IMask(inputElements.phone, {
             mask: "+{7}(000)000-00-00",
