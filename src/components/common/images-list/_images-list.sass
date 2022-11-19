@@ -1,6 +1,10 @@
 .images-list
     width: 100%
-    overflow: hidden
+    overflow: scroll
+    scroll-snap-type: x mandatory
+
     display: flex
     flex-wrap: nowrap
     justify-content: center
+    & > *
+        scroll-snap-align: center

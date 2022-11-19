@@ -1,13 +1,18 @@
+const WARNNING_COLOR = "#f51";
+const OK_IMAGE = "../assets/svg/send.svg";
+const WARNING_TEXT = "ЧТО-ТО НА СЕРВЕРЕ ПОШЛО НЕ ТАК!";
+
 function renderOkScreen(form: HTMLElement) {
     const img = document.createElement("img");
-    img.src = "../assets/svg/send.svg";
+    img.src = OK_IMAGE;
     form.innerHTML = "";
     form.append(img);
 }
 function renderErrorScreen(form: HTMLElement) {
     const caption = document.createElement("h1");
-    caption.style.color = "#f51";
-    caption.innerText = "ЧТО-ТО ПОШЛО НЕ ТАК!";
+    caption.style.color = WARNNING_COLOR;
+    caption.innerText = WARNING_TEXT;
+    caption.style.textAlign = "center";
     form.append(caption);
     setTimeout(() => {
         caption.remove();

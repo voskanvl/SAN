@@ -5,7 +5,7 @@ import FinalRender from "./finalSendForm";
 async function sender(formData: FormData): Promise<Response> {
     const res: Response = {
         headers: new Headers(),
-        ok: false,
+        ok: Math.random() < 0.5,
         redirected: false,
         status: 0,
         statusText: "",
@@ -50,22 +50,21 @@ export async function sendForm(form: HTMLFormElement) {
 export function validateFormOrder(selector: string, validateReg: RegExp) {
     const inputElement = document.querySelector<HTMLInputElement>(selector);
     if (inputElement)
-        new FormField(
-            inputElement,
-            val => {
-                return validateReg.test(val);
-            },
-            {
-                valid: () => Errored.unset(inputElement),
-                invalid: () => Errored.set(inputElement),
-            },
-        );
+        new FormField(inputElement, val => validateReg.test(val), {
+            valid: () => Errored.unset(inputElement),
+            invalid: () => Errored.set(inputElement),
+        });
 }
 export default function formOrder() {
     validateFormOrder("input[name='name']", /.+/);
     validateFormOrder("input[type='tel']", /^\+7\([\d]{3}\)[\d]{3}-[\d]{2}-[\d]{2}$/);
-    validateFormOrder("input[type='email']", /^[a-z0-9_\.-]+@[a-z0-9-]+\.[a-z]{1,4}\.[a-z]{1,4}$/);
-    const form = document.querySelector<HTMLFormElement>("form.style__form");
+    validateFormOrder(
+        "input[type='email']",
+        /^((([0-9A-Za-z]{1}[-0-9A-z\.]{1,}[0-9A-Za-z]{1})|([0-9А-Яа-я]{1}[-0-9А-я\.]{1,}[0-9А-Яа-я]{1}))@([-A-Za-z]{1,}\.){1,2}[-A-Za-z]{2,})$/,
+    );
+    const form =
+        document.querySelector<HTMLFormElement>("form.style__form") ||
+        document.querySelector<HTMLFormElement>("form.booking-order");
     if (!form) return;
     const submitButton = document.querySelector<HTMLElement>("input[type='submit'");
     submitButton &&
@@ -79,7 +78,7 @@ export default function formOrder() {
             if (!errored.length && !notValided.length) {
                 sendForm(form)
                     .then(r => {
-                        const selector = form.querySelector<HTMLElement>(".booking-order");
+                        const selector = document.querySelector<HTMLElement>(".booking-order");
                         if (!selector) return;
                         r === "ok"
                             ? FinalRender.renderOkScreen(selector)

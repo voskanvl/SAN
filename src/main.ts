@@ -3,11 +3,11 @@ import "./sass/style.sass";
 import "@splidejs/splide/css";
 import toggleSidePanel from "./toggleSlidePanel";
 import slides from "./slides";
-import selector from "./selector";
-import bookingOrder from "./booking-order";
+import selector from "./form/selector";
+import bookingOrder from "./form/booking-order";
 import { tabs, storeTabs } from "./tabs";
 import hideTargetLowerFooter from "./hideTargetUpperFooter";
-import formOrder from "./form-order";
+import formOrder from "./form/form-order";
 
 slides();
 

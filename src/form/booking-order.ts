@@ -1,7 +1,9 @@
 import IMask from "imask";
 
 export default function bookingOrder() {
-    const formElement = document.querySelector<HTMLFormElement>("form.style__form");
+    const formElement =
+        document.querySelector<HTMLFormElement>("form.style__form") ||
+        document.querySelector<HTMLFormElement>("form.booking-order");
     if (!formElement) return;
     const inputNames = ["name", "phone", "email"];
     type inputsType = {
