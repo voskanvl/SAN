@@ -82,9 +82,13 @@ export default function formOrder() {
             );
             const errored = requrired.filter(e => (e as HTMLInputElement).hasAttribute("errored"));
             // const notValided = requrired.filter(e => !(e as HTMLInputElement).checkValidity());
+
+            //we leave only required fields in  validatedInputs
+            //after that, we validate the remaining
             const validatedInputs = validatableInputs
                 .filter(e => e && e.element && requrired.some(r => r === (e.element as Element)))
                 .every(e => e && e.validate());
+
             if (!errored.length && validatedInputs) {
                 sendForm(form)
                     .then(r => {
