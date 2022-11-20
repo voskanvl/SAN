@@ -1,5 +1,5 @@
 export default class FormField {
-    private element: HTMLInputElement;
+    public element: HTMLInputElement;
     private validator: (data: string) => boolean;
     private valid: Function = () => {};
     private invalid: Function = () => {};
@@ -13,10 +13,15 @@ export default class FormField {
         this.validator = validator;
         valid && (this.valid = valid);
         invalid && (this.invalid = invalid);
-        this.element.addEventListener("blur", (e: Event) => {
-            const currentTarget = e.currentTarget as typeof this.element;
-            if (this.validator(currentTarget.value)) this.valid(currentTarget.value);
-            else this.invalid(currentTarget.value);
-        });
+        this.emitValidity.bind(this);
+        this.element.addEventListener("blur", () => this.emitValidity());
+    }
+    public emitValidity() {
+        if (this.element.value && this.validator(this.element.value))
+            this.valid(this.element.value);
+        else this.invalid(this.element.value);
+    }
+    public validate(): boolean {
+        return this.validator(this.element.value);
     }
 }

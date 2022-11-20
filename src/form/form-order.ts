@@ -50,23 +50,30 @@ export async function sendForm(form: HTMLFormElement) {
 export function validateFormOrder(selector: string, validateReg: RegExp) {
     const inputElement = document.querySelector<HTMLInputElement>(selector);
     if (inputElement)
-        new FormField(inputElement, val => validateReg.test(val), {
+        return new FormField(inputElement, val => validateReg.test(val), {
             valid: () => Errored.unset(inputElement),
             invalid: () => Errored.set(inputElement),
         });
+    else return null;
 }
 export default function formOrder() {
-    validateFormOrder("input[name='name']", /.+/);
-    validateFormOrder("input[type='tel']", /^\+7\([\d]{3}\)[\d]{3}-[\d]{2}-[\d]{2}$/);
-    validateFormOrder(
-        "input[type='email']",
-        /^((([0-9A-Za-z]{1}[-0-9A-z\.]{1,}[0-9A-Za-z]{1})|([0-9А-Яа-я]{1}[-0-9А-я\.]{1,}[0-9А-Яа-я]{1}))@([-A-Za-z]{1,}\.){1,2}[-A-Za-z]{2,})$/,
-    );
+    const validatableInputs = [
+        validateFormOrder("input[name='name']", /.+/),
+        validateFormOrder("input[type='tel']", /^\+7\([\d]{3}\)[\d]{3}-[\d]{2}-[\d]{2}$/),
+        validateFormOrder(
+            "input[type='email']",
+            /^((([0-9A-Za-z]{1}[-0-9A-z\.]{1,}[0-9A-Za-z]{1})|([0-9А-Яа-я]{1}[-0-9А-я\.]{1,}[0-9А-Яа-я]{1}))@([-A-Za-z]{1,}\.){1,2}[-A-Za-z]{2,})$/,
+        ),
+    ];
+
     const form =
         document.querySelector<HTMLFormElement>("form.style__form") ||
         document.querySelector<HTMLFormElement>("form.booking-order");
+
     if (!form) return;
+
     const submitButton = document.querySelector<HTMLElement>("input[type='submit'");
+
     submitButton &&
         submitButton.addEventListener("click", (e: Event) => {
             e.preventDefault();
@@ -74,8 +81,11 @@ export default function formOrder() {
                 (e as HTMLInputElement).hasAttribute("required"),
             );
             const errored = requrired.filter(e => (e as HTMLInputElement).hasAttribute("errored"));
-            const notValided = requrired.filter(e => !(e as HTMLInputElement).checkValidity());
-            if (!errored.length && !notValided.length) {
+            // const notValided = requrired.filter(e => !(e as HTMLInputElement).checkValidity());
+            const validatedInputs = validatableInputs
+                .filter(e => e && e.element && requrired.some(r => r === (e.element as Element)))
+                .every(e => e && e.validate());
+            if (!errored.length && validatedInputs) {
                 sendForm(form)
                     .then(r => {
                         const selector = document.querySelector<HTMLElement>(".booking-order");

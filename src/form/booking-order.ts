@@ -4,8 +4,8 @@ export default function bookingOrder() {
     const formElement =
         document.querySelector<HTMLFormElement>("form.style__form") ||
         document.querySelector<HTMLFormElement>("form.booking-order");
-    if (!formElement) return;
     const inputNames = ["name", "phone", "email"];
+    if (!formElement) return;
     type inputsType = {
         name?: HTMLInputElement;
         phone?: HTMLInputElement;
