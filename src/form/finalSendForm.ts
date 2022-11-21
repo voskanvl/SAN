@@ -11,8 +11,8 @@ function renderOkScreen(form: HTMLElement) {
 function renderErrorScreen(form: HTMLElement) {
     const caption = document.createElement("h1");
     caption.style.color = WARNNING_COLOR;
-    caption.innerText = WARNING_TEXT;
-    caption.style.textAlign = "center";
+    caption.innerHTML = WARNING_TEXT;
+    caption.classList.add("warnning");
     form.append(caption);
     setTimeout(() => {
         caption.remove();
