@@ -39,8 +39,8 @@ $ops: 98
 
         & > span:last-child
             display: inline-block
-            transform-origin: bottom
-            animation: exclamation 1s .2s infinite both
+            transform-origin: 50% 74%
+            animation: exclamation 1s .2s 1 forwards
 
     &__text
         text-align: center
@@ -83,7 +83,20 @@ $ops: 98
 @keyframes exclamation
     0%
         transform: rotate(0deg)
-    50%
+    6%
         transform: rotate(30deg)
-    100%
+    12%
         transform: rotate(0deg)
+    18%
+        transform: rotate(30deg)
+    24%
+        transform: rotate(0deg)
+
+    80%
+        transform: rotate(200deg)
+    90%
+        transform: rotate(175deg)
+    97%
+        transform: rotate(185deg)
+    100%
+        transform: rotate(180deg)

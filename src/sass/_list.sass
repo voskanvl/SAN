@@ -1,0 +1,45 @@
+.list
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    margin-bottom: 110px
+    row-gap: 27px
+
+    &__item
+        list-style: none
+        height: 325px
+        width: 285px
+        opacity: 1
+        transition: opacity .6s, height .4s .2s, width .6s .6s
+        overflow: hidden
+        will-change: height, width, opacity
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: space-between
+        background: #F4F5F700
+        transition: background .5s
+        & > a
+            display: flex
+            flex-direction: column
+            align-items: center
+        &:not([active])
+            height: 0
+            width: 0
+            opacity: 0
+            // display: none
+        & > img
+            width: 100%
+        & > span
+            font-size: 25px
+            font-weight: 300
+
+        &:hover
+            background: #F4F5F7
+
+    &__href
+        & > svg
+            margin: 65px 60px
+            fill: #0A2C507f
+            width: 164px
+            height: 164px
