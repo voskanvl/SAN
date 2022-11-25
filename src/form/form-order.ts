@@ -3,6 +3,7 @@ import Errored from "./setFieldErrored";
 import FinalRender from "./finalSendForm";
 
 async function sender(formData: FormData): Promise<Response> {
+    console.log(formData);
     const res: Response = {
         headers: new Headers(),
         ok: Math.random() < 0.5,

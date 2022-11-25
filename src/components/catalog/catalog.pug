@@ -15,7 +15,7 @@ include ../common/float-blocks/float-blocks.pug
     ul.list
         each i, idx in categories
             each item in i.list 
-                li.list__item(data-index=i.role, active=idx===0)
+                li.list__item(data-index=i.role, active)
                         if(item.img)
                             a.list__href(href="#"+item.id)
                                 img(src=i.path+item.img)

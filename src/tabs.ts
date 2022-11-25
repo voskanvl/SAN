@@ -31,22 +31,27 @@ export function tabs() {
     if (!tabsContainerElement) return;
     const tabs = Array.from(tabsContainerElement.children).map(e => e as HTMLElement);
     storeTabs.tabs = tabs;
-    detectActiveTab(storeTabs);
+    // detectActiveTab(storeTabs);
     tabsContainerElement &&
         tabsContainerElement.addEventListener("click", (e: Event) => {
             const target = (e.target as HTMLElement).closest<HTMLButtonElement>(".tab");
-            console.log("🚀 ~ target", target);
             if (!target) return;
+            if (target.getAttribute("active")) {
+                storeTabs.currentTab = null;
+                storeTabs.currentRole = "";
+                target.removeAttribute("active");
+                return;
+            }
             storeTabs.currentTab && storeTabs.currentTab?.removeAttribute("active");
             storeTabs.currentTab = target;
             storeTabs.currentRole = target?.dataset.index || "";
             storeTabs.currentTab && storeTabs.currentTab?.setAttribute("active", "active");
         });
 }
-function detectActiveTab(store: IStore): void {
-    const active = store.tabs?.filter(e => e.getAttribute("active"))[0];
-    if (!active) return;
-    store.currentRole = active?.dataset.index;
-    store.currentTab = active;
-    console.log(store);
-}
+// function detectActiveTab(store: IStore): void {
+//     const active = store.tabs?.filter(e => e.getAttribute("active"))[0];
+//     if (!active) return;
+//     store.currentRole = active?.dataset.index;
+//     store.currentTab = active;
+//     console.log(store);
+// }

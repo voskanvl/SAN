@@ -1,0 +1,18 @@
+constructor:
+  legs:
+      - "../../assets/images/constructor/legs/1.png"
+      - "../../assets/images/constructor/legs/2.png"
+      - "../../assets/images/constructor/legs/3.png"
+  seats:
+    -
+      - "../../assets/images/constructor/niki/1.png"
+      - "../../assets/images/constructor/niki/2.png"
+      - "../../assets/images/constructor/niki/3.png"
+    -
+      - "../../assets/images/constructor/bravo/1.png"
+      - "../../assets/images/constructor/bravo/2.png"
+      - "../../assets/images/constructor/bravo/3.png"
+    -
+      - "../../assets/images/constructor/monti/1.png"
+      - "../../assets/images/constructor/monti/2.png"
+      - "../../assets/images/constructor/monti/3.png"

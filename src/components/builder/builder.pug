@@ -1,0 +1,42 @@
+include ../common/mixins/splide.pug
+.builder
+    .builder__container
+        .builder__controls.seat__controls 
+            .chairtypes__button.next.next_left
+                span.title Влево
+                img.arrow(src="../../../../assets/icons/Arrow 1.png")
+            .builder__slider.seats        
+                +splide("seat",constructor.seats)
+                    ul.seats__images
+                        each i, idx in val 
+                            li.seats__image(data-n=idx) 
+                                img(src=i)
+            .chairtypes__button.next.next_right 
+                span.title Вправо
+                img.arrow_180(src="../../../../assets/icons/Arrow 1.png")
+        
+        .builder__controls.legs__controls 
+            .chairtypes__button.next.next_left
+                span.title Влево
+                img.arrow(src="../../../../assets/icons/Arrow 1.png")
+            .builder__slider.legs  
+                +splide("legs",constructor.legs)
+                    img(src=val)
+            .chairtypes__button.next.next_right 
+                span.title Вправо
+                img.arrow_180(src="../../../../assets/icons/Arrow 1.png")
+        .builder__select-color
+            .form-group(color)
+                -
+                    const fff=[
+                        {color:"#F7EBD8",id:300},
+                        {color:"#4E0A1C",id:302},
+                        {color:"#9CAEB8",id:301},
+
+                    ]
+                each i,idx in fff
+                    .form-group__item(style="--color:"+i.color, data-index=idx)
+                        input(type="radio", name="color1", id="color1"+i.id, value=i.color)
+                        .form-group__color
+            
+        
