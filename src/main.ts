@@ -1,3 +1,5 @@
+import { Option } from "./optionInterface";
+
 import "./sass/style.sass";
 // import { MSplides } from "./initSlides";
 import "@splidejs/splide/css";
@@ -9,6 +11,58 @@ import { tabs, storeTabs } from "./tabs";
 import hideTargetLowerFooter from "./hideTargetUpperFooter";
 import formOrder from "./form/form-order";
 import { selectColorInBuilder } from "./selectColorInBuilder";
+import { chairbacks, option_data_san } from "./fakeData";
+import {
+    splideHTML,
+    initialMountColorSet,
+    getRelatedOptionsValues,
+    getCategory,
+    getTypes,
+    getColorTypes,
+} from "./constructor";
+
+declare global {
+    interface Window {
+        option_data_san: Option;
+    }
+}
+
+window.option_data_san = option_data_san;
+
+//----CONSTRUCTOR-------------------------------------------------------------
+
+const selectType = getCategory(option_data_san);
+const backs = selectType(0); //получили спинки
+if (!backs) throw Error("ошибка получения категории");
+
+const backTypes = getTypes(backs); //получили типы спинок
+console.log("🚀 ~ backTypes", backTypes);
+
+const sec = splideHTML(
+    "seat",
+    backTypes.map(e => {
+        return `<ul class="seats__images">${getColorTypes(e)
+            .map(
+                v =>
+                    `<li class="seats__image" data-n="${v.option_value_id}"><img src="${v.image}" /></li>`,
+            )
+            .join("")}</ul>`;
+    }),
+);
+
+const placemountBacks = document.querySelector(".builder__slider.seats");
+const placemountColors = document.querySelector(".builder__container");
+
+console.log("🚀 ~ placemountBacks", placemountBacks);
+!!placemountBacks && placemountBacks.append(sec);
+
+const rootElementForColorSet = document.createElement("div");
+rootElementForColorSet.classList.add("builder__select-color");
+rootElementForColorSet.setAttribute("id", "color-set");
+!!placemountColors && placemountColors.append(rootElementForColorSet);
+
+initialMountColorSet();
+//----------------------------------------------------------------------------
 
 slides();
 

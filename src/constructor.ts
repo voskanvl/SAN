@@ -1,20 +1,14 @@
 import { chairbacks } from "./fakeData";
-import {
-    Option,
-    related_options,
-    related_options_value,
-    product_option_value,
-} from "./optionInterface";
+import { related_options_value, product_option_value, Option } from "./optionInterface";
 
-const itemToLi = (item: string[], interval: number = 1000) => {
-    return `<li class="splide__slide" data-splide-interval="${interval}">${item}</li>`;
+const itemToLi = (images: string, interval: number = 1000) => {
+    console.log("🚀 ~ images", images);
+    const stringImages = images;
+    console.log("🚀 ~ stringImages", stringImages);
+    return `<li class="splide__slide" data-splide-interval="${interval}">${stringImages}</li>`;
 };
 
-export const splideHTML = (
-    idname: string,
-    arr: string[][],
-    interval: number = 1000,
-): HTMLElement => {
+export const splideHTML = (idname: string, arr: string[], interval: number = 1000): HTMLElement => {
     const section = document.createElement("section");
     section.classList.add("splide");
     section.setAttribute("id", idname);
@@ -24,13 +18,21 @@ export const splideHTML = (
     return section;
 };
 
-// export const getBacks = (obj: Record<string, Option>): related_options_value[] => {
-//     const sortedOption = Object.entries(obj)
-//         .sort((a, b) => +a[1].option_id - +b[1].option_id)
-//         .map(([_, value]) => value);
-//     const backs = Object.values(sortedOption[1].product_option_value);
-//     return backs;
-// };
+export const getCategory =
+    (options: { [key: string]: Option }) =>
+    (index: number): Option | undefined => {
+        const types = Object.values(options);
+        if (!types) throw Error("option_data_san isn't correct");
+        const type = types.find(({ sort_order }) => sort_order === String(index));
+        return type;
+    };
+
+export const getTypes = (cat: Option) => Object.values(cat.product_option_value);
+
+export const getColorTypes = (option: product_option_value): related_options_value[] => {
+    const res = Object.values(option.related_options)[0];
+    return res.values;
+};
 
 export const getRelatedOptionsValues = (product: product_option_value): related_options_value[] =>
     Object.values(product.related_options)
@@ -44,9 +46,9 @@ export const renderColorSet = (arr: related_options_value[]): HTMLElement => {
     el.setAttribute("color", "color");
     const inner = `
             ${arr
-                .map((e, i) => {
+                .map(e => {
                     return `
-                <div class="form-group__item" style="--color:${e.text}" data-index="${i}">
+                <div class="form-group__item" style="--color:${e.text}" data-index="${e.option_value_id}">
                     <input type="radio" name="color1" id="color1300" value="${e.text}">
                     <div class="form-group__color"></div>
                 </div>
@@ -70,9 +72,6 @@ export const mountColorSet = (root: HTMLElement, colorSet: HTMLElement) => {
 
 export const updateColorSet = (newIndex: number) => {
     const arrColors = getArrColorsByIndex(newIndex);
-    // const arrColors = Object.entries(chairbacks[newIndex].related_options).map(
-    //     ([_, val]) => val,
-    // )[0].values;
     const colors = renderColorSet(arrColors);
     const root = document.querySelector<HTMLElement>("#color-set");
     if (!root) return;

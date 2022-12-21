@@ -1,68 +1,7 @@
+import { updateColorSet } from "./constructor";
 import { MSplides } from "./initSlides";
 
 export default function slides() {
-    // const ranges = [0, 425, 768, 1024, 1440, Infinity];
-    // const rangesTabs = [0, 468, 1323, Infinity];
-    // // const rangesProduct = [0, 468, 1323, Infinity];
-
-    // function matchRange(x: number, arr: number[]) {
-    //     let res;
-    //     arr = arr.sort((a, b) => a - b);
-    //     for (let index = 0; index < arr.length - 1; index++) {
-    //         const up = x >= arr[index];
-    //         const down = x < arr[index + 1];
-    //         if (up && down) res = index;
-    //     }
-    //     return res;
-    // }
-
-    /* RESIZE */
-    // function debounce(f: Function, ms: number) {
-    //     let isCooldown = false;
-    //     return function () {
-    //         if (isCooldown) return;
-    //         f(arguments);
-    //         isCooldown = true;
-    //         setTimeout(() => (isCooldown = false), ms);
-    //     };
-    // }
-
-    // window.addEventListener(
-    //     "resize",
-    //     debounce(() => {
-    //         const perPage = matchRange(innerWidth, ranges);
-
-    //         splidesInstance.instances["#service-package"] &&
-    //             (splidesInstance.instances["#service-package"].options.perPage = perPage);
-    //         splidesInstance.instances["#service-package"] &&
-    //             splidesInstance.instances["#service-package"].refresh();
-    //     }, 200),
-    // );
-
-    // window.addEventListener(
-    //     "resize",
-    //     debounce(() => {
-    //         const perPage = 2 + (matchRange(innerWidth, rangesTabs) || 0);
-    //         console.log("🚀 ~ perPage", perPage);
-
-    //         splidesInstance.instances["#tabs"] &&
-    //             (splidesInstance.instances["#tabs"].options.perPage = perPage);
-    //         splidesInstance.instances["#tabs"] && splidesInstance.instances["#tabs"].refresh();
-    //     }, 200),
-    // );
-
-    // let perPage = matchRange(innerWidth, ranges);
-    // splidesInstance.instances["#service-package"] &&
-    //     (splidesInstance.instances["#service-package"].options.perPage = perPage || 0 + 1);
-    // splidesInstance.instances["#service-package"] &&
-    //     splidesInstance.instances["#service-package"].refresh();
-
-    // perPage = 2 + (matchRange(innerWidth, rangesTabs) || 0);
-    // console.log("🚀 ~ perPage", matchRange(innerWidth, rangesTabs), perPage);
-    // splidesInstance.instances["#tabs"] &&
-    //     (splidesInstance.instances["#tabs"].options.perPage = perPage);
-    // splidesInstance.instances["#tabs"] && splidesInstance.instances["#tabs"].refresh();
-
     const splidesInstance = new MSplides();
     if (document.querySelector("#chairtypes")) {
         splidesInstance.add("#chairtypes", {
@@ -120,8 +59,23 @@ export default function slides() {
 
     /* BUILDER */
 
-    if (document.querySelector("#seat")) {
-        splidesInstance.add("#seat", {
+    //---- TEST ------------------------------------
+    // const builderId = "#seat";
+    // if (document.querySelector(builderId)) {
+    //     splidesInstance.add(builderId, {
+    //         type: "loop",
+    //         arrows: false,
+    //         pagination: false,
+    //         focus: "center",
+    //     });
+    //     const tmp = splidesInstance.instances[builderId];
+    //     tmp.on("move", updateColorSet);
+    // }
+
+    //_____________________________________________________________
+    const BUILDER_ID = "#seat";
+    if (document.querySelector(BUILDER_ID)) {
+        splidesInstance.add(BUILDER_ID, {
             type: "loop",
             arrows: false,
             pagination: false,
@@ -142,12 +96,12 @@ export default function slides() {
         // };
 
         seatButtons[0].addEventListener("click", () => {
-            splidesInstance.instances["#seat"].go(">");
+            splidesInstance.instances[BUILDER_ID].go(">");
             // setActive(splidesInstance.instances["#blog-slider"].index);
             // console.log(splidesInstance.instances["#blog-slider"].index);
         });
         seatButtons[1].addEventListener("click", () => {
-            splidesInstance.instances["#seat"].go("<");
+            splidesInstance.instances[BUILDER_ID].go("<");
             // removeActive();
             // setActive(splidesInstance.instances["#blog-slider"].index);
             // console.log(splidesInstance.instances["#blog-slider"].index);
@@ -158,6 +112,8 @@ export default function slides() {
         // );
 
         // setActive(0);
+        const tmp = splidesInstance.instances[BUILDER_ID];
+        tmp.on("move", updateColorSet);
     }
 
     if (document.querySelector("#legs")) {
