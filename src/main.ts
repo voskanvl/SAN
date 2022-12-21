@@ -23,7 +23,7 @@ import {
 
 declare global {
     interface Window {
-        option_data_san: Option;
+        option_data_san: { [key: string | number]: Option };
     }
 }
 
@@ -38,7 +38,7 @@ const legs = selectType(1); //получили ножки
 if (!backs || !legs) throw Error("ошибка получения категории");
 
 const backTypes = getTypes(backs); //получили типы спинок
-const legsTypes = getTypes(legs); //получили типы ножек
+const legsTypes = getTypes(legs); //получили типы ножек, они же сами ножки
 console.log("🚀 ~ legsTypes", legsTypes);
 
 const sec = splideHTML(
@@ -53,11 +53,19 @@ const sec = splideHTML(
     }),
 );
 
+const legsSplide = splideHTML(
+    "legs",
+    legsTypes.map(e => {
+        return `<img src="${e.image}" />`;
+    }),
+);
+
 const placemountBacks = document.querySelector(".builder__slider.seats");
 const placemountColors = document.querySelector(".builder__container");
 const placemountLegs = document.querySelector(".builder__slider.legs");
 
 !!placemountBacks && placemountBacks.append(sec);
+!!placemountLegs && placemountLegs.append(legsSplide);
 
 const rootElementForColorSet = document.createElement("div");
 rootElementForColorSet.classList.add("builder__select-color");

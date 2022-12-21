@@ -25,14 +25,14 @@ export interface product_option_value {
     // value_image: string;
     // related_options: {
     //     [key: number]: related_options;
-    image: object;
+    image: string | null;
     name: string;
     option_value_id: string;
     price: boolean;
     price_prefix: string;
     related_option_id: string;
     related_option_value_id: string;
-    related_options: { [key: string]: related_options };
+    related_options: { [key: string]: related_options } | never[];
     related_options_json: string;
     text: string;
     value_image: string | null;
