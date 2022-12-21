@@ -33,10 +33,13 @@ window.option_data_san = option_data_san;
 
 const selectType = getCategory(option_data_san);
 const backs = selectType(0); //получили спинки
-if (!backs) throw Error("ошибка получения категории");
+const legs = selectType(1); //получили ножки
+
+if (!backs || !legs) throw Error("ошибка получения категории");
 
 const backTypes = getTypes(backs); //получили типы спинок
-console.log("🚀 ~ backTypes", backTypes);
+const legsTypes = getTypes(legs); //получили типы ножек
+console.log("🚀 ~ legsTypes", legsTypes);
 
 const sec = splideHTML(
     "seat",
@@ -52,6 +55,7 @@ const sec = splideHTML(
 
 const placemountBacks = document.querySelector(".builder__slider.seats");
 const placemountColors = document.querySelector(".builder__container");
+const placemountLegs = document.querySelector(".builder__slider.legs");
 
 console.log("🚀 ~ placemountBacks", placemountBacks);
 !!placemountBacks && placemountBacks.append(sec);

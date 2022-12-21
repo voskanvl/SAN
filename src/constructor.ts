@@ -71,6 +71,7 @@ export const mountColorSet = (root: HTMLElement, colorSet: HTMLElement) => {
 };
 
 export const updateColorSet = (newIndex: number) => {
+    console.log("🚀 ~ newIndex", newIndex);
     const arrColors = getArrColorsByIndex(newIndex);
     const colors = renderColorSet(arrColors);
     const root = document.querySelector<HTMLElement>("#color-set");
