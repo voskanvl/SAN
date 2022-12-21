@@ -57,7 +57,6 @@ const placemountBacks = document.querySelector(".builder__slider.seats");
 const placemountColors = document.querySelector(".builder__container");
 const placemountLegs = document.querySelector(".builder__slider.legs");
 
-console.log("🚀 ~ placemountBacks", placemountBacks);
 !!placemountBacks && placemountBacks.append(sec);
 
 const rootElementForColorSet = document.createElement("div");
