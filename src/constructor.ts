@@ -71,12 +71,29 @@ export const mountColorSet = (root: HTMLElement, colorSet: HTMLElement) => {
 };
 
 export const updateColorSet = (newIndex: number) => {
-    console.log("🚀 ~ newIndex", newIndex);
     const arrColors = getArrColorsByIndex(newIndex);
     const colors = renderColorSet(arrColors);
     const root = document.querySelector<HTMLElement>("#color-set");
     if (!root) return;
     mountColorSet(root, colors);
+};
+
+export const restoreActiveColorControl = () => {
+    const activeSeat = document.querySelector<HTMLElement>(
+        ".splide__slide.is-active.is-visible .seats__image:last-child",
+    ); // получили последний он же активный li из текущего слайда
+
+    if (!activeSeat) throw Error("некорректные данные в HTML");
+    const activeSeatIndex = activeSeat.dataset.n;
+    if (!activeSeatIndex) throw Error("некорректные атрибуты контейнера изображения (li)");
+
+    const relatedColorSelected = document.querySelector<HTMLInputElement>(
+        `.form-group > .form-group__item[data-index="${activeSeatIndex}"] > input`,
+    );
+
+    if (!relatedColorSelected) throw Error("отсутствует input элемент в переключаете цветов");
+
+    relatedColorSelected.checked = true;
 };
 
 export const initialMountColorSet = () => {

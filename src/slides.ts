@@ -1,4 +1,4 @@
-import { updateColorSet } from "./constructor";
+import { restoreActiveColorControl, updateColorSet } from "./constructor";
 import { MSplides } from "./initSlides";
 
 export default function slides() {
@@ -83,72 +83,30 @@ export default function slides() {
         });
 
         const seatButtons = document.querySelectorAll<HTMLElement>(".seat__controls > .next");
-        // const blogContents = document.querySelectorAll(".blog__content");
-
-        // const removeActive = () => {
-        //     blogContents.forEach(e => e.removeAttribute("active"));
-        // };
-        // const setActive = (index: number) => {
-        //     removeActive();
-        //     blogContents.forEach(e => {
-        //         if (e.getAttribute("data-id") === String(index)) e.setAttribute("active", "active");
-        //     });
-        // };
 
         seatButtons[0].addEventListener("click", () => {
             splidesInstance.instances[BUILDER_ID].go(">");
-            // setActive(splidesInstance.instances["#blog-slider"].index);
-            // console.log(splidesInstance.instances["#blog-slider"].index);
         });
         seatButtons[1].addEventListener("click", () => {
             splidesInstance.instances[BUILDER_ID].go("<");
-            // removeActive();
-            // setActive(splidesInstance.instances["#blog-slider"].index);
-            // console.log(splidesInstance.instances["#blog-slider"].index);
         });
 
-        // splidesInstance.instances["#blog-slider"].on("moved", () =>
-        //     setActive(splidesInstance.instances["#blog-slider"].index),
-        // );
-
-        // setActive(0);
         const tmp = splidesInstance.instances[BUILDER_ID];
         tmp.on("move", updateColorSet);
+        tmp.on("moved", restoreActiveColorControl);
     }
 
     if (document.querySelector("#legs")) {
         splidesInstance.add("#legs", { type: "loop", arrows: false, pagination: false });
 
         const legsButtons = document.querySelectorAll<HTMLElement>(".legs__controls > .next");
-        // const blogContents = document.querySelectorAll(".blog__content");
-
-        // const removeActive = () => {
-        //     blogContents.forEach(e => e.removeAttribute("active"));
-        // };
-        // const setActive = (index: number) => {
-        //     removeActive();
-        //     blogContents.forEach(e => {
-        //         if (e.getAttribute("data-id") === String(index)) e.setAttribute("active", "active");
-        //     });
-        // };
 
         legsButtons[0].addEventListener("click", () => {
             splidesInstance.instances["#legs"].go(">");
-            // setActive(splidesInstance.instances["#blog-slider"].index);
-            // console.log(splidesInstance.instances["#blog-slider"].index);
         });
         legsButtons[1].addEventListener("click", () => {
             splidesInstance.instances["#legs"].go("<");
-            // removeActive();
-            // setActive(splidesInstance.instances["#blog-slider"].index);
-            // console.log(splidesInstance.instances["#blog-slider"].index);
         });
-
-        // splidesInstance.instances["#blog-slider"].on("moved", () =>
-        //     setActive(splidesInstance.instances["#blog-slider"].index),
-        // );
-
-        // setActive(0);
     }
 
     return splidesInstance;

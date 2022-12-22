@@ -53,7 +53,7 @@ const option1 = {
                                 option_value_id: "55",
                                 name: "\u0427\u0435\u0440\u043d\u043e-\u0441\u0435\u0440\u044b\u0439",
                                 related_option_name: "\u0426\u0432\u0435\u0442",
-                                image: "/assets/images/constructor/bravo/3.png",
+                                image: "/assets/images/constructor/bravo/4.png",
                                 text: "#102B1E",
                             },
                         ],
