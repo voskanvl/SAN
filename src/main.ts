@@ -1,7 +1,7 @@
+import { option1 } from "./fakeData";
 import { Option } from "./optionInterface";
 
 import "./sass/style.sass";
-// import { MSplides } from "./initSlides";
 import "@splidejs/splide/css";
 import toggleSidePanel from "./toggleSlidePanel";
 import slides from "./slides";
@@ -11,27 +11,25 @@ import { tabs, storeTabs } from "./tabs";
 import hideTargetLowerFooter from "./hideTargetUpperFooter";
 import formOrder from "./form/form-order";
 import { selectColorInBuilder } from "./selectColorInBuilder";
-import { chairbacks, option_data_san } from "./fakeData";
-import {
-    splideHTML,
-    initialMountColorSet,
-    getRelatedOptionsValues,
-    getCategory,
-    getTypes,
-    getColorTypes,
-} from "./constructor";
+import { CreateConstructor } from "./constructor";
 
 declare global {
     interface Window {
-        option_data_san: { [key: string | number]: Option };
+        option_data_san: { [key: string]: Option };
     }
 }
-
-window.option_data_san = option_data_san;
-
+// window.addEventListener("DOMContentLoaded", () => {
 //----CONSTRUCTOR-------------------------------------------------------------
 
-const selectType = getCategory(option_data_san);
+// console.log("window.option_data_san", window.option_data_san);
+const option_data_san_geted = option1 as unknown as { [key: string]: Option };
+// const option_data_san_geted = window.option_data_san;
+
+const constructor = new CreateConstructor(option_data_san_geted);
+
+const { splideHTML, initialMountColorSet, getCategory, getTypes, getColorTypes } = constructor;
+
+const selectType = getCategory();
 const backs = selectType(0); //получили спинки
 const legs = selectType(1); //получили ножки
 
@@ -75,7 +73,7 @@ rootElementForColorSet.setAttribute("id", "color-set");
 initialMountColorSet();
 //----------------------------------------------------------------------------
 
-slides();
+slides(option_data_san_geted);
 
 toggleSidePanel(".side-panel", "#trigger");
 
@@ -96,14 +94,16 @@ storeTabs.subscribe((current: string) => {
         if (dataIndex === current) element.setAttribute("active", "active");
         else element.removeAttribute("active");
     });
-    setTimeout(hideTargetLowerFooter, 1000);
+    // setTimeout(hideTargetLowerFooter, 1000);
 });
 
 bookingOrder();
 
-hideTargetLowerFooter();
-window.addEventListener("resize", hideTargetLowerFooter);
+// hideTargetLowerFooter();
+// window.addEventListener("resize", hideTargetLowerFooter);
 
 formOrder();
 
 selectColorInBuilder();
+// });
+// window.option_data_san = option_data_san;

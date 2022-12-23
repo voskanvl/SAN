@@ -2,6 +2,7 @@
     position: absolute
     z-index: -1
     inset: 0
+    container-type: size
     & > img
         display: block
 
@@ -31,6 +32,9 @@
     height: 653px
     // transition: height .2s
     // clip-path: polygon(0 0, 80% 0, 80% 100%, 0% 100%)
+    // @container (max-height: 647px)
+    //     display: block
+
     &[hidden]
         height: 0
     &.absolute
@@ -42,3 +46,7 @@
 
     @media screen and ( max-width: 425px )
         width: 100%
+
+    // @media screen and ( max-height: 657px )
+    //     & .bottom-rect
+    //         display: none

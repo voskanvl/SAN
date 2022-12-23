@@ -1,7 +1,9 @@
-import { restoreActiveColorControl, updateColorSet } from "./constructor";
+import { Option } from "./optionInterface";
+import { CreateConstructor } from "./constructor";
+// import { restoreActiveColorControl, updateColorSet } from "./constructor";
 import { MSplides } from "./initSlides";
 
-export default function slides() {
+export default function slides(option_data_san: { [key: string]: Option }) {
     const splidesInstance = new MSplides();
     if (document.querySelector("#chairtypes")) {
         splidesInstance.add("#chairtypes", {
@@ -75,6 +77,10 @@ export default function slides() {
     //_____________________________________________________________
     const BUILDER_ID = "#seat";
     if (document.querySelector(BUILDER_ID)) {
+        const { restoreActiveColorControl, updateColorSet } = new CreateConstructor(
+            option_data_san,
+        );
+
         splidesInstance.add(BUILDER_ID, {
             type: "loop",
             arrows: false,
