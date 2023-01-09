@@ -2,46 +2,52 @@ import FormField from "./form-field";
 import Errored from "./setFieldErrored";
 import FinalRender from "./finalSendForm";
 
+// async function sender(formData: FormData): Promise<Response> {
+//     console.log(formData);
+//     const res: Response = {
+//         headers: new Headers(),
+//         ok: Math.random() < 0.5,
+//         redirected: false,
+//         status: 0,
+//         statusText: "",
+//         type: "error",
+//         url: "",
+//         clone: function (): Response {
+//             throw new Error("Function not implemented.");
+//         },
+//         body: null,
+//         bodyUsed: false,
+//         arrayBuffer: function (): Promise<ArrayBuffer> {
+//             throw new Error("Function not implemented.");
+//         },
+//         blob: function (): Promise<Blob> {
+//             throw new Error("Function not implemented.");
+//         },
+//         formData: function (): Promise<FormData> {
+//             throw new Error("Function not implemented.");
+//         },
+//         json: function (): Promise<any> {
+//             throw new Error("Function not implemented.");
+//         },
+//         text: function (): Promise<string> {
+//             throw new Error("Function not implemented.");
+//         },
+//     };
+//     return res;
+//     // throw Error("error");
+// }
+
 async function sender(formData: FormData): Promise<Response> {
-    console.log(formData);
-    const res: Response = {
-        headers: new Headers(),
-        ok: Math.random() < 0.5,
-        redirected: false,
-        status: 0,
-        statusText: "",
-        type: "error",
-        url: "",
-        clone: function (): Response {
-            throw new Error("Function not implemented.");
-        },
-        body: null,
-        bodyUsed: false,
-        arrayBuffer: function (): Promise<ArrayBuffer> {
-            throw new Error("Function not implemented.");
-        },
-        blob: function (): Promise<Blob> {
-            throw new Error("Function not implemented.");
-        },
-        formData: function (): Promise<FormData> {
-            throw new Error("Function not implemented.");
-        },
-        json: function (): Promise<any> {
-            throw new Error("Function not implemented.");
-        },
-        text: function (): Promise<string> {
-            throw new Error("Function not implemented.");
-        },
-    };
-    return res;
-    // throw Error("error");
+    return fetch("/mail.php", {
+        method: "POST",
+        body: formData,
+    });
 }
 
 export async function sendForm(form: HTMLFormElement) {
     const formData = new FormData(form);
     try {
         const responce = await sender(formData);
-        console.log("🚀 ~ responce", responce);
         if (responce.ok) return "ok";
     } catch (error) {
         return error;

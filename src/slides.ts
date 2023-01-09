@@ -43,13 +43,11 @@ export default function slides(option_data_san: { [key: string]: Option }) {
         blogButtons[0].addEventListener("click", () => {
             splidesInstance.instances["#blog-slider"].go(">");
             setActive(splidesInstance.instances["#blog-slider"].index);
-            console.log(splidesInstance.instances["#blog-slider"].index);
         });
         blogButtons[1].addEventListener("click", () => {
             splidesInstance.instances["#blog-slider"].go("<");
             removeActive();
             setActive(splidesInstance.instances["#blog-slider"].index);
-            console.log(splidesInstance.instances["#blog-slider"].index);
         });
 
         splidesInstance.instances["#blog-slider"].on("moved", () =>

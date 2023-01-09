@@ -111,9 +111,7 @@ export class CreateConstructor {
         this.updateColorSet = this.updateColorSet.bind(this);
     }
     itemToLi(images: string, interval: number = 1000) {
-        console.log("🚀 ~ images", images);
         const stringImages = images;
-        console.log("🚀 ~ stringImages", stringImages);
         return `<li class="splide__slide" data-splide-interval="${interval}">${stringImages}</li>`;
     }
 

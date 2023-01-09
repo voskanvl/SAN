@@ -12,6 +12,8 @@ export default function selectorFunction() {
                     list.append(selectedElement);
                     item.classList.add("selected");
                     container.prepend(item);
+                    const input = container.closest("label")?.querySelector("input");
+                    !!input && (input.value = item.textContent || "");
                 }
             });
         });
